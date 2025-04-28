@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NAKUL AGRAWAL | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">NAKUL AGRAWAL</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <section class="hero" style="position: relative; overflow: hidden;">
+    <!-- Background Video -->
+    <video 
+      id="hero-video" 
+      autoplay 
+      loop 
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; z-index: -1;"
+      playsinline
+    >
+      <source src="portaivideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  
+    <!-- Main Content -->
+    <div class="container" style="position: relative; z-index: 1; text-align: center;">
+      <h2>Hello, I'm <span id="typed-text"></span></h2>
+      <button onclick="scrollToContact()">Hire Me</button>
+    </div>
+  
+    <!-- Small Circular Play/Pause Button -->
+    <button 
+      onclick="toggleVideo()" 
+      style="
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2;
+      "
+      id="playPauseButton"
+    >
+      ❚❚
+    </button>
+  </section>
+  
+  <script>
+    var video = document.getElementById("hero-video");
+    var button = document.getElementById("playPauseButton");
+  
+    function toggleVideo() {
+      if (video.paused) {
+        video.play();
+        button.innerHTML = "❚❚"; // Show pause icon when playing
+      } else {
+        video.pause();
+        button.innerHTML = "►"; // Show play icon when paused
+      }
+    }
+  
+    // Auto pause video on scroll
+    window.addEventListener('scroll', function() {
+      if (!video.paused) {
+        video.pause();
+        button.innerHTML = "►"; // Update button icon when paused
+      }
+    });
+  
+    // Make sure the video is not muted so sound will come
+    video.muted = false;
+  </script>
+  
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>My name is <strong>Nakul Agrawal</strong>. I am a passionate <strong>Web Developer</strong> with a spice of <strong>Cyber knowledge</strong> to enhance the taste of de-bugging the code, which also helps in <strong>Software Testing</strong>.</p>
+      <p>I identify myself as a <strong>Coder</strong>, <strong>Full Stack Developer</strong>, and a <strong>Cyber Partner</strong>. I have recently completed projects, which reflect the interests and dedication I have in the field of development and cybersecurity.</p>
+    </div>
+  </section>
+  
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <div class="project-card">
+          <h3><a href="https://www.dolatram.com" target="_blank">Dolatram</a></h3>
+          <p>A website dedicated to providing a wide range of herbal raw materials and Ayurvedic herbs.</p>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://www.badabuilder.com" target="_blank">Bada Builder</a></h3>
+          <p>A real estate construction website focused on building and delivering quality projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 NAKUL AGRAWAL. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
