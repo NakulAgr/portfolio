@@ -40,3 +40,24 @@ function type() {
 }
 
 type();
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent actual form submission
+
+  // Get the values from the input fields
+  var name = document.getElementById('name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var message = document.getElementById('message').value.trim();
+
+  // Define your email receiver
+  var receiverEmail = 'nakulagrawal987@gmail.com'; // <-- Change this to your email
+
+  // Create the mailto link
+  var subject = encodeURIComponent('New message from ' + name);
+  var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+
+  var mailtoLink = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + receiverEmail + '&su=' + subject + '&body=' + body;
+
+  // Open the mailto link in a new tab
+  window.open(mailtoLink, '_blank');
+});
